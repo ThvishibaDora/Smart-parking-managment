@@ -1,0 +1,114 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Parking Management System</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <h1>Smart Parking</h1>
+      <p>Parking Management Dashboard</p>
+    </div>
+    <span class="status"><span class="dot"></span> System Online</span>
+  </header>
+
+  <main class="container">
+    <section class="welcome">
+      <div>
+        <p class="eyebrow">PARKING CONTROL CENTER</p>
+        <h2>Dashboard Overview</h2>
+        <p>Monitor parking slots and manage vehicle entries and exits.</p>
+      </div>
+      <div class="date" id="current-date"></div>
+    </section>
+
+    <section class="stats">
+      <article class="stat-card">
+        <p>Total Slots</p>
+        <h3 id="total-slots">9</h3>
+      </article>
+      <article class="stat-card">
+        <p>Available Slots</p>
+        <h3 id="available-slots">9</h3>
+      </article>
+      <article class="stat-card">
+        <p>Occupied Slots</p>
+        <h3 id="occupied-slots">0</h3>
+      </article>
+      <article class="stat-card">
+        <p>Occupancy</p>
+        <h3 id="occupancy">0%</h3>
+      </article>
+    </section>
+
+    <section class="panel">
+      <div class="section-heading">
+        <div>
+          <h2>Parking Lot</h2>
+          <p>Select an available slot to park a vehicle.</p>
+        </div>
+        <div class="legend">
+          <span><i class="available-key"></i> Available</span>
+          <span><i class="occupied-key"></i> Occupied</span>
+        </div>
+      </div>
+      <div id="parking-grid" class="parking-grid"></div>
+    </section>
+
+    <section class="panel">
+      <div class="section-heading">
+        <div>
+          <h2>Vehicle Entry / Exit</h2>
+          <p>Record vehicle movements.</p>
+        </div>
+      </div>
+      <form id="parking-form">
+        <label>
+          Vehicle Number
+          <input id="vehicle-number" type="text"
+            placeholder="e.g. TS09AB1234" required>
+        </label>
+        <label>
+          Select Slot
+          <select id="slot-select" required>
+            <option value="">Choose an available slot</option>
+          </select>
+        </label>
+        <button type="submit">Park Vehicle</button>
+      </form>
+    </section>
+
+    <section class="panel">
+      <div class="section-heading">
+        <div>
+          <h2>Current Parking Records</h2>
+          <p>Vehicles currently inside the parking lot.</p>
+        </div>
+      </div>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Vehicle Number</th>
+              <th>Slot</th>
+              <th>Entry Time</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="records-body">
+            <tr><td colspan="4">No vehicles parked yet.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p id="message" role="status"></p>
+    </section>
+  </main>
+
+  <footer>Smart Parking Management System</footer>
+  <script src="script.js"></script>
+</body>
+</html>
